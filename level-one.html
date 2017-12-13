@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Level One</title>
+	<link rel="stylesheet" type="text/css" href="base.css">
+	<link href="https://fonts.googleapis.com/css?family=Exo+2:500,700,800|Permanent+Marker" rel="stylesheet">
+	<script
+  	src="https://code.jquery.com/jquery-3.2.1.min.js"
+  	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  	crossorigin="anonymous"></script>
+  	<script type="text/javascript" src="action.js"></script>
+</head>
+<body>
+	<header>
+		<h2>Find Him!</h2>
+	</header>
+	<main class="noselect">
+		<div id="time">Time
+			<p>2:00</p>
+		</div>
+		<div id="myscore">Points
+			<p id="my-point"></p>
+		</div>
+		<div class="game-board" id="game4">
+			<img class="ground" src="images/where-four.jpeg">
+			<img class="hit-him" id="waldo4" src="images/waldo-four.png">
+		</div>
+		<div class="game-board" id="game3">
+			<img class="ground" src="images/where-three.jpg">
+			<img class="hit-him" id="waldo3" src="images/waldo-three.png">
+		</div>
+		<div class="game-board" id="game2">
+			<img class="ground" src="images/where-two.jpg">
+			<img class="hit-him" id="waldo2" src="images/waldo-two.png">
+		</div>
+	</main>
+	<footer id="buttons">
+		<button class="hints" id="hint-one">Hint 1</button>
+		<button class="hints" id="hint-two">Hint 2</button>
+		<button id="stop-it">Give up</button>
+		<button id="reveal">Reveal</button>
+		<button id="next-level">Next</button>
+	</footer>
+</body>
+</html>
