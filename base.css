@@ -12,6 +12,7 @@ body {
 	min-width: 1040px;
 	min-height: 650px;
 }
+/*----Home-Page-------*/
 #home-body {
 	min-width: 800px;
 }
@@ -80,10 +81,6 @@ body {
 	-ms-user-select: none; /* Internet Explorer/Edge */
 	user-select: none; /* Non-prefixed version, currently
 						supported by Chrome and Opera */
-}
-
-#game2, #game3 {
-	display: none;
 }
 
 /*----------High Score----------*/

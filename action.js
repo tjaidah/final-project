@@ -2,7 +2,6 @@ $(document).ready(function(){
 
 
 	var score = 0;
-  var finalScore;
   var final = 0;
 	var gameInProgress = true;
 
@@ -18,7 +17,8 @@ $(document).ready(function(){
   var slotOne=0;
   var slotTwo=0;
   var slotThree=0;
-//clicking on waldo
+
+//clicking on waldo 
 
   $(".hit-him").click(function(){
 		$('#next-round').css('display','inherit');
@@ -30,7 +30,7 @@ $(document).ready(function(){
 
   });
 
-//beginning start screen
+//beginning start screen 
 
   $('#start-btn').click(function(){
     gameInProgress = true;
@@ -47,9 +47,6 @@ $(document).ready(function(){
     randGround();
 	});
 
-// Hint Button click
-
-
 // Giving up
 
   $('#give-up').click(function(){
@@ -58,6 +55,7 @@ $(document).ready(function(){
     $('#the-arrow').show();
     $('#next-level').show();
     $('#give-up').hide();
+    $('.hit-him').hide();
     
     if (slotOne==0) {
       slotOne=0;
@@ -70,8 +68,61 @@ $(document).ready(function(){
     }
   });
 
+//next level button clicking 
+    
+  $('#next-level').click(function(){
+    gameInProgress = true;
+    // hide current game and waldo
+    $('.hit-him').hide();
+    $('.ground').hide();
+    $('#give-up').show();
+    randGround();
+    setTime();
+    startTimer();
+    checkSecond();
+    $('#next-level').hide();
+    $('#the-arrow').hide();
+    $('#hint-wall').hide();
 
-// Check which Ground 
+  });
+
+//start over 
+
+  $('#retry').click(function(){
+    $('#highscore-page').hide();
+      $('.start-screen').show();
+      resetScores();
+      countIt();
+
+      $('#my-point').html('0');
+
+  });
+
+// Highscore page and prepending 
+
+  $('#highscore').click(function(){
+    $('#the-end').hide();
+    $('#highscore-page').show();
+
+    var final= parseInt(slotOne) + parseInt(slotTwo) + parseInt(slotThree);
+    var dt = new Date();
+    var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+    $('#score-board')
+    .prepend('<p>'+time+' -------------------- '+final+' points'+'</p>');
+  });
+
+// Reset the score and empty the slots
+
+  function resetScores() {
+    slotOne=0;
+    slotTwo=0;
+    slotThree=0;
+    final = 0;
+    score=0;
+  }
+
+// select random ground and display relative content
+
   function randGround(){
 
     var x = grounds[Math.floor((Math.random() * 3))];
@@ -116,7 +167,6 @@ $(document).ready(function(){
     }
     else if (level4==true && level3==true && level2==true){
       $('#the-end').show();
-      $('#final-score').html(finalScore);
       $('#hint, #give-up').hide();
       $('#game-over').show();
       $('#highscore').show();
@@ -134,56 +184,7 @@ $(document).ready(function(){
   });
   };
 
-//start over 
-  $('#retry').click(function(){
-    $('#highscore-page').hide();
-      $('.start-screen').show();
-      resetScores();
-      countIt();
 
-      $('#my-point').html('0');
-
-  });
-
-// Highscore clicking 
-  $('#highscore').click(function(){
-    $('#the-end').hide();
-    $('#highscore-page').show();
-
-    var final= parseInt(slotOne) + parseInt(slotTwo) + parseInt(slotThree);
-    var dt = new Date();
-    var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
-    $('#score-board')
-    .prepend('<p>'+time+' -------------------- '+final+' points'+'</p>');
-  });
-
-  function resetScores() {
-    slotOne=0;
-    slotTwo=0;
-    slotThree=0;
-
-    final = 0;
-
-    score=0;
-  }
-
-//next level button clicking 
-		
-	$('#next-level').click(function(){
-		gameInProgress = true;
-    // hide current game and waldo
-    $('.hit-him').hide();
-    $('.ground').hide();
-    $('#give-up').show();
-    randGround();
-		setTime();
-		startTimer();
-		checkSecond();
-		$('#next-level').hide();
-    $('#the-arrow').hide();
-    $('#hint-wall').hide();
-
-	});
 
 //timer function
 	function setTime(){
@@ -230,6 +231,7 @@ $(document).ready(function(){
       console.log(score);
 	}
 
+  //compute the score (collects all three scores from each slot, and adds them)
   function countIt(){
     parseInt(score);
     parseInt(slotOne,slotThree,slotTwo);
