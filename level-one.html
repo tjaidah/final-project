@@ -1,45 +1,88 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Level One</title>
-	<link rel="stylesheet" type="text/css" href="base.css">
-	<link href="https://fonts.googleapis.com/css?family=Exo+2:500,700,800|Permanent+Marker" rel="stylesheet">
-	<script
-  	src="https://code.jquery.com/jquery-3.2.1.min.js"
-  	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  	crossorigin="anonymous"></script>
-  	<script type="text/javascript" src="action.js"></script>
-</head>
-<body>
-	<header>
-		<h2>Find Him!</h2>
-	</header>
-	<main class="noselect">
-		<div id="time">Time
-			<p>2:00</p>
+	<head>
+		<title>Level One</title>
+		<link rel="stylesheet" type="text/css" href="base.css">
+		<link href="https://fonts.googleapis.com/css?family=Exo+2:500,700,800|Permanent+Marker" rel="stylesheet">
+		<script
+	  	src="https://code.jquery.com/jquery-3.2.1.min.js"
+	  	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  	crossorigin="anonymous"></script>
+	  	<script type="text/javascript" src="action.js"></script>
+	</head>
+	<body>
+		<div id="smoke">
+			<header>
+				<h2 id="the-title">Find Him!</h2>
+				<h2 id="the-title" class="highscore">Highscores!</h2>
+			</header>
+			<aside>
+				<div id="time">Time
+					<br><p id="times">3:00</p>
+				</div>
+				<div id="myscore">Points
+					<p id="my-point">0</p>
+				</div>
+			</aside>
+			<main class="noselect">
+				<div class="game-board" id="game4">
+					<div id="ground-container">
+						<h2 class="start-screen">Are you Ready?</h2>
+						<button id="start-btn" class="start-screen">start</button>
+						<img id="start-waldo" class="start-screen" src="images/gameoverwaldo.png">
+
+						<!-- Arrow of hint -->
+
+						<img id="the-arrow" src="images/giphy-arrow.gif">	
+
+						<!--hint wall  -->
+						<div id="hint-wall" class="hint-other"></div>
+
+						<!-- game-over pop up -->
+
+						<div id="the-end">
+							<img id="waldotag" src="images/waldotag.png">
+							<h2>Game Over!</h2>
+							<div id="final-score">0</div>
+							<h3>Points</h3>
+							<br>
+							<button id="game-over" class="game-over" onclick="window.location.href='../final-project/waldo.html'">Home</button>
+							<button id="highscore" class="game-over">Highscores</button>
+						</div>
+
+						<!-- highscore board -->
+
+						<div id="highscore-page">
+							<h2>Top Scores:</h2>
+							<p> Time ............... Score</p>
+							<div id="score-board">
+							</div>
+							<button id="retry" class="game-over">Retry</button>
+							<button id="homepage-btn" class="game-over" onclick="window.location.href='../final-project/waldo.html'">HomePage</button>
+						</div>
+
+						<!-- ground four -->
+
+						<img class="ground game4" src="images/where-four.jpeg">
+						<img class="hit-him game4" id="waldo4" src="images/waldo-four.png">
+
+						<!-- ground three -->
+
+						<img class="ground game3" src="images/where-three.jpg">
+						<img class="hit-him game3" id="waldo3" src="images/waldo-three.png">
+
+						<!-- ground two -->
+
+						<img class="ground game2" src="images/where-two.jpg">
+						<img class="hit-him game2" id="waldo2" src="images/waldo-two.png">
+					</div>
+					<button class="hints" id="hint">Hint</button>
+					<button id="give-up">Give up</button>
+					<button id="next-level" class="level-two">Next</button>
+					<button id="next-level" class="level-three">Next</button>
+				</div>
+			</main>
+
 		</div>
-		<div id="myscore">Points
-			<p id="my-point"></p>
-		</div>
-		<div class="game-board" id="game4">
-			<img class="ground" src="images/where-four.jpeg">
-			<img class="hit-him" id="waldo4" src="images/waldo-four.png">
-		</div>
-		<div class="game-board" id="game3">
-			<img class="ground" src="images/where-three.jpg">
-			<img class="hit-him" id="waldo3" src="images/waldo-three.png">
-		</div>
-		<div class="game-board" id="game2">
-			<img class="ground" src="images/where-two.jpg">
-			<img class="hit-him" id="waldo2" src="images/waldo-two.png">
-		</div>
-	</main>
-	<footer id="buttons">
-		<button class="hints" id="hint-one">Hint 1</button>
-		<button class="hints" id="hint-two">Hint 2</button>
-		<button id="stop-it">Give up</button>
-		<button id="reveal">Reveal</button>
-		<button id="next-level">Next</button>
-	</footer>
-</body>
+	</body>
 </html>
