@@ -27,6 +27,7 @@ $(document).ready(function(){
     $('#give-up').hide();
     $('#next-level').show();
     $('#the-arrow').hide();
+    $('#winner').show();
 
   });
 
@@ -83,6 +84,7 @@ $(document).ready(function(){
     $('#next-level').hide();
     $('#the-arrow').hide();
     $('#hint-wall').hide();
+    $('#winner').hide();
 
   });
 
